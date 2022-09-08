@@ -2,7 +2,7 @@ import './App.css';
 import React from 'react';
 import { getClimateData } from './redux/actions/ClimateActions'
 import { connect } from "react-redux";
-import { Container, Row, Col, Input, Button } from 'reactstrap';
+import { Button } from 'reactstrap';
 import LineChart from './components/LineChart';
 
 class App extends React.Component {
@@ -16,11 +16,13 @@ class App extends React.Component {
     this.isF = true;
     this.state = {
       climateData: {},
+      location: window.localStorage.getItem("climateAPI123")
     };
 
   }
 
   searchWeather() {
+    window.localStorage.setItem("climateAPI123", this.inputSearchRef.current.value);
     this.props.getClimateData(this.inputSearchRef.current.value, this.state.isF);
   }
 
@@ -34,6 +36,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    if(this.state.location){
+      this.props.getClimateData(this.state.location, this.state.isF);
+    }
   }
   render() {
     console.log("in render");
@@ -41,10 +46,10 @@ class App extends React.Component {
       <div className="container">
         <div className="row mt-4 pt-4">
           <div className="col-9">
-            <input type="text" className="form-control" ref={this.inputSearchRef} />
+            <input type="text" className="form-control" defaultValue={this.state.location} ref={this.inputSearchRef} />
           </div>
           <div className='col-1'>
-            <div class="form-check">
+            <div className="form-check">
               <input
                 className="form-check-input mr-2"
                 type="checkbox"

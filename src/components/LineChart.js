@@ -1,7 +1,5 @@
 import { Chart, registerables } from 'chart.js';
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import store from '../redux/store';
 import { connect } from "react-redux";
 let myChart;
 
@@ -67,11 +65,11 @@ class LineChart extends React.Component {
                     </div>
                     <div className="col-3 mt-4">
                         <div>
-                            city: {this.props.data?.climateReducer?.city?.name || ''} <br />
-                            city: {this.props.data?.climateReducer?.city?.country || ''} <br />
-                            population: {this.props.data?.climateReducer?.city?.population || ''}<br />
-                            lat: {this.props.data?.climateReducer?.city?.coord?.lat || ''}<br />
-                            lon: {this.props.data?.climateReducer?.city?.coord?.lon || ''}
+                            City: {this.props.data?.climateReducer?.city?.name || ''} <br />
+                            Country: {this.props.data?.climateReducer?.city?.country || ''} <br />
+                            Population: {this.props.data?.climateReducer?.city?.population || ''}<br />
+                            Latitude: {this.props.data?.climateReducer?.city?.coord?.lat || ''}<br />
+                            Longitude: {this.props.data?.climateReducer?.city?.coord?.lon || ''}
                         </div>
                     </div>
                 </div>
