@@ -46,7 +46,7 @@ class App extends React.Component {
       <div className="container">
         <div className="row mt-4 pt-4">
           <div className="col-9">
-            <p>Enter cities like dallas, austin, new york or 78728, 28262, etc zip codes</p>
+            <p>Enter cities like dallas, austin, new york or 78728, 28262, etc zip codes Default API Values: Austin</p>
             <input type="text" className="form-control" defaultValue={this.state.location} ref={this.inputSearchRef} />
           </div>
           <div className='col-1'>

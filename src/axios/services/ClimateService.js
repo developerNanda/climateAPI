@@ -5,7 +5,7 @@ class ClimateService {
         const apiData = {
             countryCode: 'US',
             limit: 5,
-            location: data || 'austin',
+            location: data,
             lat: 30.4417,
             lon: -97.6811,
             units: isF ? "imperial" : "metric"
